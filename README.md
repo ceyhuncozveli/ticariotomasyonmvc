@@ -1,0 +1,2 @@
+# ticariotomasyonmvc
+Ticari-Otomasyon-MVC
