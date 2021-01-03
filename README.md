@@ -1,2 +1,2 @@
 # ticariotomasyonmvc
-Ticari-Otomasyon-MVC
+Bir MVC eğitimi izlenerek olusturulan ornek projedir. Commitler, egitim bolumlerinin tamamlanmasina gore ilerlemektedir.
