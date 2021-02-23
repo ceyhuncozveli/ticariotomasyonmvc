@@ -1,13 +1,16 @@
 ﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Urun
 @{
-    ViewBag.Title = "YeniUrun";
+    ViewBag.Title = "UrunGetir";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <br />
-<h2>Yeni Ürün Sayfası</h2>
+<h2>Ürün Güncelleme Sayfası</h2>
 <br />
-<form class="form-group" method="post">
+
+@using (Html.BeginForm("UrunGuncelle", "Urun", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.UrunID)
     @Html.LabelFor(x => x.UrunAd)
     @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control" })
     <br />
@@ -33,8 +36,7 @@
     @Html.DropDownListFor(x => x.KategoriId, (List<SelectListItem>)ViewBag.kategoriler, new { @class = "form-control" })
     @*@Html.TextBoxFor(x => x.KategoriId, new { @class = "form-control" })*@
     <br />
-    <button class="btn btn-primary">Kaydet</button>
-
-</form>
+    <button class="btn btn-warning">Güncelle</button>
+}
 
 
