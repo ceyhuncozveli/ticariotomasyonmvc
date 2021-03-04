@@ -60,5 +60,10 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             ViewBag.departmanAdi = departman;
             return View(personeller);
         }
+
+        public ActionResult DepartmanPersonelSatis(int id)
+        {
+            return View();
+        }
     }
 }
