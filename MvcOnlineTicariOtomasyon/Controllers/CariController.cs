@@ -40,5 +40,25 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult CariGetir(int id)
+        {
+            var cari = context.Carilers.Find(id);
+            return View("CariGetir", cari);
+        }
+
+        public ActionResult CariGuncelle(Cariler cari)
+        {
+            if (!ModelState.IsValid)
+                return View("CariGetir");
+
+            var dbCari = context.Carilers.Find(cari.CariID);
+            dbCari.CariAd = cari.CariAd;
+            dbCari.CariSoyad = cari.CariSoyad;
+            dbCari.CariSehir = cari.CariSehir;
+            dbCari.CariMail = cari.CariMail;
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
