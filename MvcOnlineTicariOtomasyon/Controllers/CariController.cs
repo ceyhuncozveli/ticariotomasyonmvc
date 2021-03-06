@@ -14,7 +14,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
         public ActionResult Index()
         {
-            var cariler = context.Carilers.ToList();
+            var cariler = context.Carilers.Where(x => x.Durum == true).ToList();
             return View(cariler);
         }
 
@@ -27,7 +27,16 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         [HttpPost]
         public ActionResult YeniCari(Cariler cari)
         {
+            cari.Durum = true;
             context.Carilers.Add(cari);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult CariSil(int id)
+        {
+            var cari = context.Carilers.Find(id);
+            cari.Durum = false;
             context.SaveChanges();
             return RedirectToAction("Index");
         }
