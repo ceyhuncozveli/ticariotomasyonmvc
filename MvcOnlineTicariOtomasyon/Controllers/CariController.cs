@@ -17,5 +17,19 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var cariler = context.Carilers.ToList();
             return View(cariler);
         }
+
+        [HttpGet]
+        public ActionResult YeniCari()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult YeniCari(Cariler cari)
+        {
+            context.Carilers.Add(cari);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
